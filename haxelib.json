@@ -1,0 +1,16 @@
+{
+    "name": "hxsearch",
+    "url" : "https://github.com/MaddinXx/hxsearch",
+    "license": "MIT",
+    "tags": ["search", "algorithm", "array", "find", "ds"],
+    "description": "Searching algorithm library for Haxe.",
+    "classPath": "src",
+    "dependencies": {
+        "hxstd": ""
+    },
+    "version": "1.0.0",
+    "releasenote": "Initial release",
+    "contributors": [
+        "MaddinXx"
+    ]
+}
