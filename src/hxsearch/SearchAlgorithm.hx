@@ -12,4 +12,14 @@ import hxstd.util.Comparator;
  */
 interface SearchAlgorithm
 {
+    /**
+     * Searchs the Array for the passed item by using the Comparator to compare the items.
+     *
+     * @param Array<T>                 arr        the Array to search in
+     * @param T                        item       the item to search
+     * @param hxstd.util.Comparator<T> comparator the Comparator to use
+     *
+     * @return Bool true if found
+     */
+    // public static function sort<T>(arr:Array<T>, item:T comparator:Comparator<T>):Bool;
 }

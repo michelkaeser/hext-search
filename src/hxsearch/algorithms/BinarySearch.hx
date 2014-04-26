@@ -21,7 +21,7 @@ class BinarySearch implements SearchAlgorithm
         var last:Int  = arr.length - 1;
         var middle:Int;
         while (last >= first) {
-            middle = (first + last) >>> 2;
+            middle = Std.int( (first + last) / 2 );
             if (comparator(arr[middle], item) < 0) {
                 first = middle + 1;
             } else if (comparator(arr[middle], item) > 0) {

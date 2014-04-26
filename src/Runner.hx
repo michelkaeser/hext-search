@@ -12,12 +12,18 @@ class Runner
         }
         trace("Generated randoms...");
 
-        var searcher = new Searcher<Int>(Algorithm.BINARY_SEARCH, Reflector.compare);
         var copy = arr.copy();
-        copy.sort(Reflector.compare);
         var start = haxe.Timer.stamp();
-        searcher.search(copy, 5);
+        Lambda.has(copy, 5);
         var duration = haxe.Timer.stamp() - start;
+        trace("Lambda.has:   " + duration);
+
+        var searcher = new Searcher<Int>(Algorithm.BINARY_SEARCH, Reflector.compare);
+        copy = arr.copy();
+        copy.sort(Reflector.compare); // "fakes" the result but is needed
+        start = haxe.Timer.stamp();
+        searcher.search(copy, 5);
+        duration = haxe.Timer.stamp() - start;
         trace("BinarySearch: " + duration);
 
         var searcher = new Searcher<Int>(Algorithm.LINEAR_SEARCH, Reflector.compare);
