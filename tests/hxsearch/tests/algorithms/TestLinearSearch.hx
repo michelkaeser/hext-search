@@ -15,10 +15,10 @@ class TestLinearSearch extends AbstractSearchTest
      */
     public function testSearch():Void
     {
-        var found:Bool = hxsearch.algorithms.LinearSearch.search(this.arr, 4 Reflect.compare);
+        var found:Bool = hxsearch.algorithms.LinearSearch.search(this.arr, 4, Reflect.compare);
         assertTrue(found);
 
-        found = hxsearch.algorithms.LinearSearch.search(this.arr, 10 Reflect.compare);
+        found = hxsearch.algorithms.LinearSearch.search(this.arr, 10, Reflect.compare);
         assertFalse(found);
     }
 }

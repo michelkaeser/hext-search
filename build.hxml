@@ -9,12 +9,12 @@
 -cmd  ./bin/cpp/Runner
 
 # C#
-# --next
-# -cp   tests
-# -main hxsearch/tests/Runner.hx
-# -lib  hxsearch
-# -cs   bin/cs
-# -cmd  mono bin/cs/bin/Runner.exe
+--next
+-cp   tests
+-main hxsearch/tests/Runner.hx
+-lib  hxsearch
+-cs   bin/cs
+-cmd  mono bin/cs/bin/Runner.exe
 
 # Java
 --next

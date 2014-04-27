@@ -15,10 +15,10 @@ class TestBinarySearch extends AbstractSearchTest
      */
     public function testSearch():Void
     {
-        var found:Bool = hxsearch.algorithms.BinarySearch.search(this.arr, 4 Reflect.compare);
+        var found:Bool = hxsearch.algorithms.BinarySearch.search(this.arr, 4, Reflect.compare);
         assertTrue(found);
 
-        found = hxsearch.algorithms.BinarySearch.search(this.arr, 10 Reflect.compare);
+        found = hxsearch.algorithms.BinarySearch.search(this.arr, 10, Reflect.compare);
         assertFalse(found);
     }
 }
