@@ -1,0 +1,57 @@
+-cmd mkdir -p bin
+
+# C++
+--next
+-cp   tests
+-main hxsearch/tests/Runner.hx
+-lib  hxsearch
+-cpp  bin/cpp
+-cmd  ./bin/cpp/Runner
+
+# C#
+--next
+-cp   tests
+-main hxsearch/tests/Runner.hx
+-lib  hxsearch
+-cs   bin/cs
+-cmd  mono bin/cs/bin/Runner.exe
+
+# Java
+--next
+-cp   tests
+-main hxsearch/tests/Runner.hx
+-lib  hxsearch
+-java bin/java
+-cmd  java -jar bin/java/Runner.jar
+
+# JS
+--next
+-cp   tests
+-main hxsearch/tests/Runner.hx
+-lib  hxsearch
+-js   bin/Runner.js
+-cmd  node bin/Runner.js
+
+# Neko
+--next
+-cp   tests
+-main hxsearch/tests/Runner.hx
+-lib  hxsearch
+-neko bin/Runner.n
+-cmd  neko bin/Runner.n
+
+# PHP
+--next
+-cp   tests
+-main hxsearch/tests/Runner.hx
+-lib  hxsearch
+-php  bin/php
+-cmd  php bin/php/index.php
+
+# SWF
+--next
+-cp   tests
+-main hxsearch/tests/Runner.hx
+-lib  hxsearch
+-swf  bin/Runner.swf
+-cmd  echo "Open bin/Runner.swf in browser to check SWF test results"
