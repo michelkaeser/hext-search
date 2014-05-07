@@ -1,4 +1,4 @@
-# hxsort [![build status](https://ci.rackster.ch/projects/3/status.png?ref=master)](https://ci.rackster.ch/projects/3?ref=master)
+# hxsort [![build status](https://ci.rackster.ch/projects/3/status.png?ref=develop)](https://ci.rackster.ch/projects/3?ref=develop)
 
 > Sorting algorithms (http://sortvis.org/) ported to Haxe.
 
