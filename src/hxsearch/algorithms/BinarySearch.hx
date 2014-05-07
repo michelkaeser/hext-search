@@ -1,14 +1,13 @@
 package hxsearch.algorithms;
 
 import hxstd.util.Comparator;
-import hxsearch.algorithms.SearchAlgorithm;
 
 /**
  * This class is an implementation of "Binary Search" algorithm.
  *
  * @link http://en.wikipedia.org/wiki/Binary_search_algorithm
  */
-class BinarySearch implements SearchAlgorithm
+class BinarySearch
 {
     /**
      * Attn: Make sure the Array is sorted (ascending) - otherwise the search will not work!

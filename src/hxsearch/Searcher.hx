@@ -18,16 +18,9 @@ class Searcher<T>
     /**
      * Stores the algorithm class with which to search.
      *
-     * @var Class<Dynamic>
+     * @var hxsearch.algorithms.TSearchAlgorithm
      */
-    private var algorithm:Class<Dynamic>;
-
-    /**
-     * Stores the search() method object of the algorithm class.
-     *
-     * @var Dynamic
-     */
-    private var method:Dynamic;
+    private var algorithm:TSearchAlgorithm;
 
     /**
      * Stores the Comparator used to compare items in the Array.
@@ -45,7 +38,6 @@ class Searcher<T>
     public function new(algorithm:SearchAlgorithm, comparator:Comparator<T>):Void
     {
         this.algorithm  = Type.resolveClass(cast algorithm);
-        this.method     = Reflect.field(this.algorithm, "search");
         this.comparator = comparator;
     }
 
@@ -60,7 +52,7 @@ class Searcher<T>
     public function search(arr:Array<T>, item:T):Bool
     {
         if (arr != null && arr.length != 0) {
-            return Reflect.callMethod(this.algorithm, this.method, [arr, item, comparator]);
+            return this.algorithm.search(arr, item, this.comparator)
         }
 
         return false;

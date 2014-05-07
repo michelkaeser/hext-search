@@ -1,14 +1,13 @@
 package hxsearch.algorithms;
 
 import hxstd.util.Comparator;
-import hxsearch.algorithms.SearchAlgorithm;
 
 /**
  * This class is an implementation of "Linear Search with Guard" algorithm.
  *
  * @link http://en.wikipedia.org/wiki/Linear_search
  */
-class LinearSearch implements SearchAlgorithm
+class LinearSearch
 {
     /**
      * @{inherit}
