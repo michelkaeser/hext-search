@@ -12,7 +12,6 @@ class TestBinarySearch extends AbstractSearchTest
      */
     public function new():Void
     {
-        super();
-        this.algorithm = cast hxsearch.algorithms.BinarySearch;
+        super(cast hxsearch.algorithms.BinarySearch);
     }
 }

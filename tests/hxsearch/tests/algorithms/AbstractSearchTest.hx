@@ -21,6 +21,17 @@ class AbstractSearchTest extends haxe.unit.TestCase
 
 
     /**
+     * Constructor to initialize a new AbstractSearchTest instance.
+     *
+     * @param hxsearch.algorithms.TSearchAlgorithm algorithm the algorithm to use
+     */
+    public function new(algorithm:hxsearch.algorithms.TSearchAlgorithm):Void
+    {
+        super();
+        this.algorithm = algorithm;
+    }
+
+    /**
      * @{inherit}
      */
     override public function setup():Void

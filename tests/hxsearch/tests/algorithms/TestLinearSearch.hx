@@ -12,7 +12,6 @@ class TestLinearSearch extends AbstractSearchTest
      */
     public function new():Void
     {
-        super();
-        this.algorithm = cast hxsearch.algorithms.LinearSearch;
+        super(cast hxsearch.algorithms.LinearSearch);
     }
 }
