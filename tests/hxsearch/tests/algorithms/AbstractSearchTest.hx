@@ -25,7 +25,7 @@ class AbstractSearchTest extends haxe.unit.TestCase
      *
      * @param hxsearch.algorithms.TSearchAlgorithm algorithm the algorithm to use
      */
-    public function new(algorithm:hxsearch.algorithms.TSearchAlgorithm):Void
+    private function new(algorithm:hxsearch.algorithms.TSearchAlgorithm):Void
     {
         super();
         this.algorithm = algorithm;
