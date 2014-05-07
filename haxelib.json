@@ -8,8 +8,8 @@
     "dependencies": {
         "hxstd": ""
     },
-    "version": "1.1.0",
-    "releasenote": "SearchAlgorithm typedef to avoid Reflect.callMethod (faster)",
+    "version": "1.1.1",
+    "releasenote": "Fix compilation errors; refactored tests",
     "contributors": [
         "MaddinXx"
     ]
