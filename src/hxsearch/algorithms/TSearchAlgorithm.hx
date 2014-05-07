@@ -25,5 +25,5 @@ typedef TSearchAlgorithm =
      *
      * @return Bool true if found
      */
-    function sort<T>(arr:Array<T>, item:T comparator:Comparator<T>):Bool;
+    function search<T>(arr:Array<T>, item:T, comparator:Comparator<T>):Bool;
 }

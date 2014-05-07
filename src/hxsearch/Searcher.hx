@@ -6,7 +6,7 @@ import hxsearch.SearchAlgorithm;
 import hxsearch.algorithms.*;
 import hxsearch.algorithms.BinarySearch;
 import hxsearch.algorithms.LinearSearch;
-import hxsearch.algorithms.SearchAlgorithm;
+import hxsearch.algorithms.TSearchAlgorithm;
 
 /**
  * Generic wrapper class around the various searching algorithm implementations.
