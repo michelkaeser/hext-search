@@ -25,8 +25,7 @@ class AbstractSearchTest extends haxe.unit.TestCase
      */
     override public function setup():Void
     {
-        this.algorithm = null;
-        this.arr       = [7, 2, 9, 3, 4, 1, 8, 5, 6];
+        this.arr = [7, 2, 9, 3, 4, 1, 8, 5, 6];
     }
 
     /**
@@ -37,21 +36,6 @@ class AbstractSearchTest extends haxe.unit.TestCase
         this.arr = null;
     }
 
-
-    /**
-     * Ensures the search() method doesn't throw an Exception when an empty Array is passed.
-     * This should be ensured by search() being just a wrapper around internalSearch() with
-     * arr.length == 0 check.
-     */
-    public function testWorksWithEmptyArray():Void
-    {
-        try {
-            var found:Bool = this.algorithm.search([], 4, Reflect.compare);
-            assertFalse(found);
-        } catch (ex:Dynamic) {
-            assertFalse(true);
-        }
-    }
 
     /**
      * Ensures the search() method works.
@@ -66,5 +50,20 @@ class AbstractSearchTest extends haxe.unit.TestCase
 
         found = this.algorithm.search(this.arr, 10, Reflect.compare);
         assertFalse(found);
+    }
+
+    /**
+     * Ensures the search() method doesn't throw an Exception when an empty Array is passed.
+     * This should be ensured by search() being just a wrapper around internalSearch() with
+     * arr.length == 0 check.
+     */
+    public function testWorksWithEmptyArray():Void
+    {
+        try {
+            var found:Bool = this.algorithm.search([], 4, Reflect.compare);
+            assertFalse(found);
+        } catch (ex:Dynamic) {
+            assertFalse(true);
+        }
     }
 }
