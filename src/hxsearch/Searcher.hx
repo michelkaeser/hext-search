@@ -37,7 +37,7 @@ class Searcher<T>
      */
     public function new(algorithm:SearchAlgorithm, comparator:Comparator<T>):Void
     {
-        this.algorithm  = Type.resolveClass(cast algorithm);
+        this.algorithm  = cast Type.resolveClass(cast algorithm);
         this.comparator = comparator;
     }
 
@@ -52,7 +52,7 @@ class Searcher<T>
     public function search(arr:Array<T>, item:T):Bool
     {
         if (arr != null && arr.length != 0) {
-            return this.algorithm.search(arr, item, this.comparator)
+            return this.algorithm.search(arr, item, this.comparator);
         }
 
         return false;
