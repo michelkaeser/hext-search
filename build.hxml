@@ -2,56 +2,63 @@
 
 # C++
 --next
+-cp   src
 -cp   tests
 -main hxsearch/tests/Runner.hx
--lib  hxsearch
+-lib  hxstd
 -cpp  bin/cpp
 -cmd  ./bin/cpp/Runner
 
 # C#
 # --next
+# -cp   src
 # -cp   tests
 # -main hxsearch/tests/Runner.hx
-# -lib  hxsearch
+# -lib  hxstd
 # -cs   bin/cs
 # -cmd  mono bin/cs/bin/Runner.exe
 
 # Java
 --next
+-cp   src
 -cp   tests
 -main hxsearch/tests/Runner.hx
--lib  hxsearch
+-lib  hxstd
 -java bin/java
 -cmd  java -jar bin/java/Runner.jar
 
 # JS
 --next
+-cp   src
 -cp   tests
 -main hxsearch/tests/Runner.hx
--lib  hxsearch
+-lib  hxstd
 -js   bin/Runner.js
 -cmd  node bin/Runner.js
 
 # Neko
 --next
+-cp   src
 -cp   tests
 -main hxsearch/tests/Runner.hx
--lib  hxsearch
+-lib  hxstd
 -neko bin/Runner.n
 -cmd  neko bin/Runner.n
 
 # PHP
 --next
+-cp   src
 -cp   tests
 -main hxsearch/tests/Runner.hx
--lib  hxsearch
+-lib  hxstd
 -php  bin/php
 -cmd  php bin/php/index.php
 
 # SWF
 --next
+-cp   src
 -cp   tests
 -main hxsearch/tests/Runner.hx
--lib  hxsearch
+-lib  hxstd
 -swf  bin/Runner.swf
 -cmd  echo "Open bin/Runner.swf in browser to check SWF test results"
