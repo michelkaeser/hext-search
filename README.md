@@ -1,16 +1,6 @@
-# hxsort [![build status](https://ci.rackster.ch/projects/3/status.png?ref=develop)](https://ci.rackster.ch/projects/3?ref=develop)
+# hxsearch [![Build Status](https://ci.rackster.ch/buildStatus/icon?job=hxsearch)](https://ci.rackster.ch/job/hxsearch/)
 
-> Sorting algorithms (http://sortvis.org/) ported to Haxe.
-
-## Compilation Flags
-
-`-D HXSORT_GENERIC`
-
-Creates per-type implemetation of static `internalSort()` function. This can lead to better performance on various platforms, but generates larger output.
-
-`-D HXSORT_INLINE`
-
-Inlines the static `swap()` function of `AbstractSort`. This can lead to better performance on various platforms, but generates larger output.
+> Searching algorithm library for Haxe.
 
 ## License
 
