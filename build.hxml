@@ -8,6 +8,7 @@
 -lib  hxstd
 -cpp  bin/cpp
 -D    HXCPP_M64
+-D    HXCPP_NO_COLOUR
 -cmd  ./bin/cpp/Runner
 
 # C#
