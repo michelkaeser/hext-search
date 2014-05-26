@@ -1,4 +1,5 @@
 -cmd mkdir -p bin
+-cmd haxelib install mcover
 
 # C++
 --next
@@ -6,9 +7,11 @@
 -cp   tests
 -main hxsearch/tests/Runner.hx
 -lib  hxstd
+-lib  mcover
 -cpp  bin/cpp
 -D    HXCPP_M64
 -D    HXCPP_NO_COLOUR
+--macro mcover.MCover.coverage([''], ['src'])
 -cmd  ./bin/cpp/Runner
 
 # C#

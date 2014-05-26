@@ -1,5 +1,7 @@
 package hxsearch.tests.algorithms;
 
+import hxsearch.algorithms.TSearchAlgorithm;
+
 /**
  * Abstract test class to be extended by algorithm test suites.
  */
@@ -10,7 +12,7 @@ class AbstractSearchTest extends haxe.unit.TestCase
      *
      * @var hxsearch.algorithms.TSearchAlgorithm
      */
-    private var algorithm:hxsearch.algorithms.TSearchAlgorithm;
+    private var algorithm:TSearchAlgorithm;
 
     /**
      * Stores the Array that is searched.
@@ -25,7 +27,7 @@ class AbstractSearchTest extends haxe.unit.TestCase
      *
      * @param hxsearch.algorithms.TSearchAlgorithm algorithm the algorithm to use
      */
-    private function new(algorithm:hxsearch.algorithms.TSearchAlgorithm):Void
+    private function new(algorithm:TSearchAlgorithm):Void
     {
         super();
         this.algorithm = algorithm;
