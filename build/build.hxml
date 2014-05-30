@@ -1,6 +1,3 @@
--cmd mkdir -p bin
--cmd haxelib install mcover
-
 # C++
 --next
 -cp   src
@@ -12,16 +9,14 @@
 -D    HXCPP_M64
 -D    HXCPP_NO_COLOUR
 --macro mcover.MCover.coverage([''], ['src'])
--cmd  ./bin/cpp/Runner
 
 # C#
-# --next
-# -cp   src
-# -cp   tests
-# -main hxsearch/tests/Runner.hx
-# -lib  hxstd
-# -cs   bin/cs
-# -cmd  mono bin/cs/bin/Runner.exe
+--next
+-cp   src
+-cp   tests
+-main hxsearch/tests/Runner.hx
+-lib  hxstd
+-cs   bin/cs
 
 # Java
 --next
@@ -30,7 +25,6 @@
 -main hxsearch/tests/Runner.hx
 -lib  hxstd
 -java bin/java
--cmd  java -jar bin/java/Runner.jar
 
 # JS
 --next
@@ -39,7 +33,6 @@
 -main hxsearch/tests/Runner.hx
 -lib  hxstd
 -js   bin/Runner.js
--cmd  node bin/Runner.js
 
 # Neko
 --next
@@ -48,16 +41,6 @@
 -main hxsearch/tests/Runner.hx
 -lib  hxstd
 -neko bin/Runner.n
--cmd  neko bin/Runner.n
-
-# PHP
---next
--cp   src
--cp   tests
--main hxsearch/tests/Runner.hx
--lib  hxstd
--php  bin/php
--cmd  php bin/php/index.php
 
 # SWF
 --next
@@ -66,4 +49,11 @@
 -main hxsearch/tests/Runner.hx
 -lib  hxstd
 -swf  bin/Runner.swf
--cmd  echo "Open bin/Runner.swf in browser to check SWF test results"
+
+# PHP
+--next
+-cp   src
+-cp   tests
+-main hxsearch/tests/Runner.hx
+-lib  hxstd
+-php  bin/php
