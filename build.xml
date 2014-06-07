@@ -36,9 +36,9 @@
     <target name="test" depends="build" unless="build.failed" description="Runs the unit tests">
         <echo>Running unit tests...</echo>
         <exec executable="${bin}/cpp/Runner" resultproperty="cpp.code" />
-        <exec executable="mono" resultproperty="cs.code">
+        <!-- <exec executable="mono" resultproperty="cs.code">
             <arg value="${bin}/cs/bin/Runner.exe" />
-        </exec>
+        </exec> -->
         <java jar="${bin}/java/Runner.jar" fork="true" resultproperty="java.code" />
         <exec executable="node" resultproperty="node.code">
             <arg value="${bin}/Runner.js" />
@@ -52,7 +52,7 @@
         <condition property="test.failed">
             <or>
                 <isfailure code="${cpp.code}" />
-                <isfailure code="${cs.code}" />
+                <!-- <isfailure code="${cs.code}" /> -->
                 <isfailure code="${java.code}" />
                 <isfailure code="${node.code}" />
                 <isfailure code="${neko.code}" />
