@@ -15,9 +15,6 @@ class Runner
     {
         var r = new TestRunner();
 
-        r.add( new hxsearch.tests.algorithms.TestBinarySearch() );
-        r.add( new hxsearch.tests.algorithms.TestLinearSearch() );
-
         var success:Bool = r.run();
         #if cpp
             MCoverage.getLogger().report();
