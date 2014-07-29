@@ -30,7 +30,7 @@ class TextSearchAlgorithm implements ITextSearchAlgorithm
      *
      * @return String
      */
-    private inline function get_pattern():String
+    private function get_pattern():String
     {
         return this.pattern;
     }
@@ -38,17 +38,31 @@ class TextSearchAlgorithm implements ITextSearchAlgorithm
     /**
      * @{inherit}
      */
-    public function indexIn(text:String):Int
+    public function index(text:String):Int
     {
-        throw new NotImplementedException("Method indexIn() not implemented in abstract class TextSearchAlgorithm");
+        throw new NotImplementedException("Method index() not implemented in abstract class TextSearchAlgorithm");
     }
 
     /**
      * @{inherit}
      */
-    public function indexesIn(text:String):Array<Int>
+    public function indexes(text:String):Array<Int>
     {
-        throw new NotImplementedException("Method indexesIn() not implemented in abstract class TextSearchAlgorithm");
+        var indexes:Array<Int> = new Array<Int>();
+
+        if (text != null) {
+            var length:Int = this.pattern.length,
+                index:Int  = this.index(text);
+            while (index != -1) {
+                if (indexes.length != 0) {
+                    index += indexes[indexes.length - 1] + length;
+                }
+                indexes.push(index);
+                index = this.index(text.substring(index + length));
+            }
+        }
+
+        return indexes;
     }
 
     /**

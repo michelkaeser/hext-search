@@ -22,7 +22,7 @@ interface ITextSearchAlgorithm
      *
      * @return Int the position within the text where the pattern match starts
      */
-    public function indexIn(text:String):Int;
+    public function index(text:String):Int;
 
     /**
      * Returns an Array containing all indexes (starting positions) at which the pattern was found.
@@ -33,5 +33,5 @@ interface ITextSearchAlgorithm
      *
      * @return Array<Int> the Array of indexes
      */
-    public function indexesIn(text:String):Array<Int>;
+    public function indexes(text:String):Array<Int>;
 }

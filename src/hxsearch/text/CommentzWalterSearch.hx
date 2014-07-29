@@ -1,15 +1,16 @@
 package hxsearch.text;
 
 import hxsearch.text.TextSearchAlgorithm;
+import hxstd.NotImplementedException;
 
 /**
  *
- * @link http://en.wikipedia.org/wiki/Rabin-Karp_string_search_algorithm
+ * @link http://en.wikipedia.org/wiki/Commentz-Walter_algorithm
  */
-class RabinKarp extends TextSearchAlgorithm
+class CommentzWalterSearch extends TextSearchAlgorithm
 {
     /**
-     * Constructor to initialize a new RabinKarp instance.
+     * Constructor to initialize a new CommentzWalter instance.
      *
      * @param String pattern the pattern to use
      */
@@ -21,9 +22,9 @@ class RabinKarp extends TextSearchAlgorithm
     /**
      * @{inherit}
      */
-    override public function position(text:String):Int
+    override public function index(text:String):Int
     {
-        return -1;
+        throw new NotImplementedException();
     }
 
     /**

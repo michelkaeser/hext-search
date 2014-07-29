@@ -8,7 +8,7 @@ import hxsearch.text.TextSearchAlgorithm;
  *
  * @link http://en.wikipedia.org/wiki/Knuth-Morris-Pratt_algorithm
  */
-class KnuthMorrisPratt extends TextSearchAlgorithm
+class KnuthMorrisPrattSearch extends TextSearchAlgorithm
 {
     /**
      * Stores the jump table used to determinate how many chars can be jumped over.
@@ -31,9 +31,9 @@ class KnuthMorrisPratt extends TextSearchAlgorithm
     /**
      * @{inherit}
      */
-    override public function indexIn(text:String):Int
+    override public function index(text:String):Int
     {
-        if (text != null) {
+        if (text != null && text.length >= this.pattern.length) {
             var t:Int = 0,
                 p:Int = 0;
 
@@ -51,28 +51,6 @@ class KnuthMorrisPratt extends TextSearchAlgorithm
         }
 
         return -1;
-    }
-
-    /**
-     * @{inherit}
-     */
-    override public function indexesIn(text:String):Array<Int>
-    {
-        var indexes:Array<Int> = new Array<Int>();
-
-        if (text != null) {
-            var length:Int = this.pattern.length,
-                index:Int  = this.indexIn(text);
-            while (index != -1) {
-                if (indexes.length != 0) {
-                    index += indexes[indexes.length - 1] + length;
-                }
-                indexes.push(index);
-                index = this.indexIn(text.substring(index + length));
-            }
-        }
-
-        return indexes;
     }
 
     /**
