@@ -21,7 +21,7 @@ class BoyerMooreSearch extends TextSearchAlgorithm
     /**
      * Stores the Vector of character occurrences.
      *
-     * @var Vector<Int>
+     * @var haxe.ds.Vector<Int>
      */
     private var occurrences:Vector<Int>;
 
@@ -40,7 +40,7 @@ class BoyerMooreSearch extends TextSearchAlgorithm
     /**
      * @{inherit}
      */
-    override public function index(text:String):Int
+    override public function index(text:Null<String>):Int
     {
         if (text != null && text.length >= this.pattern.length) {
             var n:Int = text.length,

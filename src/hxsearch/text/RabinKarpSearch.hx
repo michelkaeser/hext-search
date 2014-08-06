@@ -46,7 +46,7 @@ class RabinKarpSearch extends TextSearchAlgorithm
     /**
      * @{inherit}
      */
-    override public function index(text:String):Int
+    override public function index(text:Null<String>):Int
     {
         if (text != null && text.length >= this.pattern.length) {
             var m:Int = this.pattern.length,

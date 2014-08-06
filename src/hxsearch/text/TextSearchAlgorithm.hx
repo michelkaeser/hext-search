@@ -4,6 +4,7 @@ import hxsearch.text.ITextSearchAlgorithm;
 import hxstd.NotImplementedException;
 
 /**
+ * Abstract text search algorithm implementation.
  *
  * @abstract
  */
@@ -37,6 +38,8 @@ class TextSearchAlgorithm implements ITextSearchAlgorithm
 
     /**
      * @{inherit}
+     *
+     * @throws hxstd.NotImplementedException since the method is abstract and to be overriden in subclasses
      */
     public function index(text:String):Int
     {
@@ -46,7 +49,7 @@ class TextSearchAlgorithm implements ITextSearchAlgorithm
     /**
      * @{inherit}
      */
-    public function indexes(text:String):Array<Int>
+    public function indexes(text:Null<String>):Array<Int>
     {
         var indexes:Array<Int> = new Array<Int>();
 

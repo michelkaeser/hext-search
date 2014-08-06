@@ -16,7 +16,7 @@ class AhoCorasickSearch extends TextSearchAlgorithm
     /**
      * Stores the nodes the algorithm uses to represent text.
      *
-     * @var Vector<hxsearch.text.AhoCarosickSearch.Node>
+     * @var haxe.ds.Vector<hxsearch.text.AhoCarosickSearch.Node>
      */
     private var nodes:Vector<Node>;
 
@@ -41,7 +41,7 @@ class AhoCorasickSearch extends TextSearchAlgorithm
     /**
      * @{inherit}
      */
-    override public function index(text:String):Int
+    override public function index(text:Null<String>):Int
     {
         if (text != null && text.length >= this.pattern.length) {
             var index:Int = 0;

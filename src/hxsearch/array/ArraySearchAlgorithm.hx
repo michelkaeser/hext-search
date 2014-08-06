@@ -5,6 +5,7 @@ import hxstd.NotImplementedException;
 import hxstd.util.Comparator;
 
 /**
+ * Abstract Array search algorithm implementation.
  *
  * @abstract
  */
@@ -28,6 +29,8 @@ class ArraySearchAlgorithm<T> implements IArraySearchAlgorithm<T>
 
     /**
      * @{inherit}
+     *
+     * @throws hxstd.NotImplementedException since the method is abstract and needs to be overriden by subclasses
      */
     public function index(item:T, arr:Array<T>):Int
     {

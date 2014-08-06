@@ -13,7 +13,7 @@ class KnuthMorrisPrattSearch extends TextSearchAlgorithm
     /**
      * Stores the jump table used to determinate how many chars can be jumped over.
      *
-     * @var Vector<Int>
+     * @var haxe.ds.Vector<Int>
      */
     private var jumps:Vector<Int>;
 
@@ -31,7 +31,7 @@ class KnuthMorrisPrattSearch extends TextSearchAlgorithm
     /**
      * @{inherit}
      */
-    override public function index(text:String):Int
+    override public function index(text:Null<String>):Int
     {
         if (text != null && text.length >= this.pattern.length) {
             var t:Int = 0,

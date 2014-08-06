@@ -3,6 +3,7 @@ package hxsearch.array;
 import hxstd.util.Comparator;
 
 /**
+ * Interface for Array search algorithms.
  *
  * @generic T the type of items the Array contains
  */

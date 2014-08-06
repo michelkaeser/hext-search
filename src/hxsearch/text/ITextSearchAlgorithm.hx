@@ -1,7 +1,7 @@
 package hxsearch.text;
 
 /**
- *
+ * Text search algorithm interface to be implemented.
  */
 interface ITextSearchAlgorithm
 {
