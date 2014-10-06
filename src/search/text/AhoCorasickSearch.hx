@@ -1,9 +1,11 @@
-package hxsearch.text;
+package search.text;
 
 import haxe.ds.Vector;
-import hxsearch.text.TextSearchAlgorithm;
-import hxstd.Char;
-import hxstd.NotImplementedException;
+import lib.Char;
+import lib.NotImplementedException;
+import search.text.TextSearchAlgorithm;
+
+using StringTools;
 
 /**
  * Aho-Corasick algorithm implementation.
@@ -16,7 +18,7 @@ class AhoCorasickSearch extends TextSearchAlgorithm
     /**
      * Stores the nodes the algorithm uses to represent text.
      *
-     * @var haxe.ds.Vector<hxsearch.text.AhoCarosickSearch.Node>
+     * @var haxe.ds.Vector<search.text.AhoCarosickSearch.Node>
      */
     private var nodes:Vector<Node>;
 
@@ -47,7 +49,7 @@ class AhoCorasickSearch extends TextSearchAlgorithm
             var index:Int = 0;
             var node:Int  = 0;
             for (i in 0...text.length) {
-                node = this.transition(node, text.charCodeAt(i));
+                node = this.transition(node, text.fastCodeAt(i));
                 if (this.nodes[node].leaf) {
                     return index - this.nodes[node].parent;
                 }
@@ -65,7 +67,7 @@ class AhoCorasickSearch extends TextSearchAlgorithm
     {
         var cur:Int = 0;
         for (i in 0...this.pattern.length) {
-            var ch:Int = this.pattern.charCodeAt(i);
+            var ch:Int = this.pattern.fastCodeAt(i);
             if (this.nodes[cur].children[ch] == -1) {
                 this.nodes[this.count] = new Node();
                 this.nodes[this.count].parent = cur;

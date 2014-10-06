@@ -1,4 +1,4 @@
-<project name="hxsearch" default="exit" basedir=".">
+<project name="hx-search" default="exit" basedir=".">
     <description>Searching algorithm library for Haxe.</description>
 
     <property environment="env" />
@@ -6,20 +6,34 @@
     <property name="src" location="${workspace}/src" />
     <property name="bin"  location="${workspace}/bin" />
     <property name="build" location="${workspace}/build" />
-    <property name="reports"  location="${workspace}/reports" />
 
     <target name="init" description="Creates the directories needed to store output">
         <echo>Creating all required directories...</echo>
         <mkdir dir="${bin}" />
-        <mkdir dir="${reports}" />
     </target>
 
     <target name="dependencies" depends="init" description="Installs required dependencies">
         <echo>Installing required dependencies...</echo>
         <exec executable="haxelib">
+            <arg value="install" />
+            <arg value="hxcpp" />
+        </exec>
+        <exec executable="haxelib">
+            <arg value="install" />
+            <arg value="hxcs" />
+        </exec>
+        <exec executable="haxelib">
+            <arg value="install" />
+            <arg value="hxjava" />
+        </exec>
+        <!--<exec executable="haxelib">
             <arg value="git" />
-            <arg value="hxstd" />
-            <arg value="git@git.rackster.ch:MaddinXx/hxstd.git" />
+            <arg value="lib" />
+            <arg value="git@git.rackster.ch:MaddinXx/hx-lib.git" />
+        </exec>-->
+        <exec executable="haxelib">
+            <arg value="install" />
+            <arg value="mcover" />
         </exec>
     </target>
 
@@ -36,9 +50,9 @@
     <target name="test" depends="build" unless="build.failed" description="Runs the unit tests">
         <echo>Running unit tests...</echo>
         <exec executable="${bin}/cpp/Runner" resultproperty="cpp.code" />
-        <!-- <exec executable="mono" resultproperty="cs.code">
+        <exec executable="mono" resultproperty="cs.code">
             <arg value="${bin}/cs/bin/Runner.exe" />
-        </exec> -->
+        </exec>
         <java jar="${bin}/java/Runner.jar" fork="true" resultproperty="java.code" />
         <exec executable="node" resultproperty="node.code">
             <arg value="${bin}/Runner.js" />
@@ -52,7 +66,7 @@
         <condition property="test.failed">
             <or>
                 <isfailure code="${cpp.code}" />
-                <!-- <isfailure code="${cs.code}" /> -->
+                <isfailure code="${cs.code}" />
                 <isfailure code="${java.code}" />
                 <isfailure code="${node.code}" />
                 <isfailure code="${neko.code}" />
@@ -61,40 +75,7 @@
         </condition>
     </target>
 
-    <target name="cloc" depends="test" description="Counts the lines of code">
-        <echo>Counting lines of code...</echo>
-        <exec executable="cloc">
-            <arg value="--ignore-whitespace" />
-            <arg value="--read-lang-def=/usr/share/cloc/defs/haxe.txt" />
-            <arg value="--by-file" />
-            <arg value="--xml" />
-            <arg value="-out=${reports}/cloc.xml" />
-            <arg value="${src}" />
-        </exec>
-
-        <exec executable="xsltproc">
-            <arg value="-o" />
-            <arg value="${reports}/sloccount.sc" />
-            <arg value="/usr/share/cloc/cloc2sloccount.xsl" />
-            <arg value="${reports}/cloc.xml" />
-        </exec>
-    </target>
-
-    <target name="checkstyle" depends="cloc" description="Runs the checkstyle analysis tool">
-        <echo>Performing Checkstyle analysis...</echo>
-        <exec executable="checkstyle">
-            <arg value="-c" />
-            <arg value="${build}/checkstyle.xml" />
-            <arg value="-f" />
-            <arg value="xml" />
-            <arg value="-o" />
-            <arg value="${reports}/checkstyle.xml" />
-            <arg value="-r" />
-            <arg value="${src}" />
-        </exec>
-    </target>
-
-    <target name="cleanup" depends="checkstyle" description="Removes compiled files and directories">
+    <target name="cleanup" depends="test" description="Removes compiled files and directories">
         <echo>Removing (temporary) directories...</echo>
         <delete dir="${bin}" />
         <delete dir="${workspace}/.temp" />

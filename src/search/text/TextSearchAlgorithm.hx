@@ -1,7 +1,7 @@
-package hxsearch.text;
+package search.text;
 
-import hxsearch.text.ITextSearchAlgorithm;
-import hxstd.NotImplementedException;
+import lib.NotImplementedException;
+import search.text.ITextSearchAlgorithm;
 
 /**
  * Abstract text search algorithm implementation.
@@ -43,7 +43,7 @@ class TextSearchAlgorithm implements ITextSearchAlgorithm
      */
     public function index(text:String):Int
     {
-        throw new NotImplementedException("Method index() not implemented in abstract class TextSearchAlgorithm");
+        throw new NotImplementedException("Method index() not implemented in abstract class TextSearchAlgorithm.");
     }
 
     /**

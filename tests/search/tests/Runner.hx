@@ -1,4 +1,4 @@
-package hxsearch.tests;
+package search.tests;
 
 #if cpp
     import mcover.coverage.MCoverage;

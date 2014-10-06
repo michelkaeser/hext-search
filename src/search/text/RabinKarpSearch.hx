@@ -1,7 +1,9 @@
-package hxsearch.text;
+package search.text;
 
-import hxsearch.text.TextSearchAlgorithm;
-import hxstd.NotImplementedException;
+import lib.NotImplementedException;
+import search.text.TextSearchAlgorithm;
+
+using StringTools;
 
 /**
  * Rabin-Karp algorithm implementation.
@@ -58,7 +60,7 @@ class RabinKarpSearch extends TextSearchAlgorithm
                 h = (h * RabinKarpSearch.D) % RabinKarpSearch.Q;
             }
             for (i in 0...m) {
-                t = (RabinKarpSearch.D * t + text.charCodeAt(i)) % RabinKarpSearch.Q;
+                t = (RabinKarpSearch.D * t + text.fastCodeAt(i)) % RabinKarpSearch.Q;
             }
 
             var i:Int = 0;
@@ -66,7 +68,7 @@ class RabinKarpSearch extends TextSearchAlgorithm
                 if (this.hash == t) {
                     var j:Int = 0;
                     while (j < m) {
-                        if (text.charAt(i + j) != this.pattern.charAt(j)) {
+                        if (text.fastCodeAt(i + j) != this.pattern.fastCodeAt(j)) {
                             break;
                         }
                         ++j;
@@ -76,7 +78,7 @@ class RabinKarpSearch extends TextSearchAlgorithm
                     }
                 }
                 if (i < n - m) {
-                    t = (RabinKarpSearch.D * (t - text.charCodeAt(i) * h) + text.charCodeAt(i + m)) % RabinKarpSearch.Q;
+                    t = (RabinKarpSearch.D * (t - text.fastCodeAt(i) * h) + text.fastCodeAt(i + m)) % RabinKarpSearch.Q;
                     if (t < 0) {
                         t = (t + RabinKarpSearch.Q);
                     }
@@ -97,7 +99,7 @@ class RabinKarpSearch extends TextSearchAlgorithm
 
         this.hash = 0;
         for (i in 0...pattern.length) {
-            this.hash = (RabinKarpSearch.D * this.hash + pattern.charCodeAt(i)) % RabinKarpSearch.Q;
+            this.hash = (RabinKarpSearch.D * this.hash + pattern.fastCodeAt(i)) % RabinKarpSearch.Q;
         }
 
         return pattern;

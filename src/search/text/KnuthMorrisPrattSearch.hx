@@ -1,7 +1,9 @@
-package hxsearch.text;
+package search.text;
 
 import haxe.ds.Vector;
-import hxsearch.text.TextSearchAlgorithm;
+import search.text.TextSearchAlgorithm;
+
+using StringTools;
 
 /**
  * Knuth–Morris–Pratt algorithm implementation.
@@ -38,7 +40,7 @@ class KnuthMorrisPrattSearch extends TextSearchAlgorithm
                 p:Int = 0;
 
             while (t < text.length) {
-                if (p < 0 || text.charAt(t) == this.pattern.charAt(p)) {
+                if (p < 0 || text.fastCodeAt(t) == this.pattern.fastCodeAt(p)) {
                     ++t; ++p;
                 } else {
                     p = this.jumps[p];
@@ -66,7 +68,7 @@ class KnuthMorrisPrattSearch extends TextSearchAlgorithm
         this.jumps[i] = j;
 
         while (i < this.pattern.length - 1) {
-            if (j < 0 || this.pattern.charAt(i) == this.pattern.charAt(j)) {
+            if (j < 0 || this.pattern.fastCodeAt(i) == this.pattern.fastCodeAt(j)) {
                 this.jumps[++i] = ++j;
             } else {
                 j = this.jumps[j];

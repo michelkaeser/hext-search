@@ -1,4 +1,4 @@
-# hxsearch [![Build Status](https://ci.rackster.ch/buildStatus/icon?job=hxsearch)](https://ci.rackster.ch/job/hxsearch/)
+# hx-search
 
 > Searching algorithm library for Haxe.
 

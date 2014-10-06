@@ -2,8 +2,8 @@
 --next
 -cp   src
 -cp   tests
--main hxsearch/tests/Runner.hx
--lib  hxstd
+-main search/tests/Runner.hx
+-lib  lib
 -lib  mcover
 -cpp  bin/cpp
 -D    HXCPP_M64
@@ -14,46 +14,46 @@
 --next
 -cp   src
 -cp   tests
--main hxsearch/tests/Runner.hx
--lib  hxstd
+-main search/tests/Runner.hx
+-lib  lib
 -cs   bin/cs
 
 # Java
 --next
 -cp   src
 -cp   tests
--main hxsearch/tests/Runner.hx
--lib  hxstd
+-main search/tests/Runner.hx
+-lib  lib
 -java bin/java
 
 # JS
 --next
 -cp   src
 -cp   tests
--main hxsearch/tests/Runner.hx
--lib  hxstd
+-main search/tests/Runner.hx
+-lib  lib
 -js   bin/Runner.js
 
 # Neko
 --next
 -cp   src
 -cp   tests
--main hxsearch/tests/Runner.hx
--lib  hxstd
+-main search/tests/Runner.hx
+-lib  lib
 -neko bin/Runner.n
 
 # SWF
 --next
 -cp   src
 -cp   tests
--main hxsearch/tests/Runner.hx
--lib  hxstd
+-main search/tests/Runner.hx
+-lib  lib
 -swf  bin/Runner.swf
 
 # PHP
 --next
 -cp   src
 -cp   tests
--main hxsearch/tests/Runner.hx
--lib  hxstd
+-main search/tests/Runner.hx
+-lib  lib
 -php  bin/php

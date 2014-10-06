@@ -1,6 +1,6 @@
-package hxsearch.array;
+package search.array;
 
-import hxstd.util.Comparator;
+import lib.util.Comparator;
 
 /**
  * Interface for Array search algorithms.
@@ -12,7 +12,7 @@ interface IArraySearchAlgorithm<T>
     /**
      * Stores the Comparator used to compare two items.
      *
-     * @var hxstd.utils.Comparator<T>
+     * @var lib.util.Comparator<T>
      */
     public var comparator:Comparator<T>;
 

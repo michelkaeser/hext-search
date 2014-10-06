@@ -1,4 +1,4 @@
-package hxsearch.text;
+package search.text;
 
 /**
  * Text search algorithm interface to be implemented.

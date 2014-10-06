@@ -1,7 +1,9 @@
-package hxsearch.text;
+package search.text;
 
 import haxe.ds.Vector;
-import hxsearch.text.TextSearchAlgorithm;
+import search.text.TextSearchAlgorithm;
+
+using StringTools;
 
 /**
  * Boyer-Moore algorithm implementation.
@@ -52,8 +54,8 @@ class BoyerMooreSearch extends TextSearchAlgorithm
                 skip = 0;
                 var j:Int = m - 1;
                 while (j >= 0) {
-                    if (this.pattern.charAt(j) != text.charAt(i + j)) {
-                        skip = Std.int( Math.max(1, j - this.occurrences[text.charCodeAt(i + j)]) );
+                    if (this.pattern.fastCodeAt(j) != text.fastCodeAt(i + j)) {
+                        skip = Std.int( Math.max(1, j - this.occurrences[text.fastCodeAt(i + j)]) );
                         break;
                     }
                     --j;
@@ -79,7 +81,7 @@ class BoyerMooreSearch extends TextSearchAlgorithm
             this.occurrences[i] = -1;
         }
         for (i in 0...this.pattern.length) {
-            this.occurrences[this.pattern.charCodeAt(i)] = i;
+            this.occurrences[this.pattern.fastCodeAt(i)] = i;
         }
 
         return pattern;

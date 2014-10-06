@@ -1,7 +1,7 @@
-package hxsearch.text;
+package search.text;
 
-import hxsearch.text.TextSearchAlgorithm;
-import hxstd.NotImplementedException;
+import lib.NotImplementedException;
+import search.text.TextSearchAlgorithm;
 
 /**
  *

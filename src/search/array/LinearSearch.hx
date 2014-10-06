@@ -1,7 +1,7 @@
-package hxsearch.array;
+package search.array;
 
-import hxsearch.array.ArraySearchAlgorithm;
-import hxstd.util.Comparator;
+import lib.util.Comparator;
+import search.array.ArraySearchAlgorithm;
 
 /**
  * This class is an implementation of "Linear Search with Guard" algorithm.
@@ -13,7 +13,7 @@ class LinearSearch<T> extends ArraySearchAlgorithm<T>
     /**
      * Constructor to initialize a new LinearSearch instance.
      *
-     * @param hxstd.utils.Comparator<T> comparator the Comparator to use
+     * @param lib.util.Comparator<T> comparator the Comparator to use
      */
     public function new(comparator:Comparator<T>):Void
     {
