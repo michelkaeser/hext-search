@@ -22,22 +22,8 @@ class BinarySearch<T> extends ArraySearchAlgorithm<T>
 
     /**
      * @{inherit}
-     *
-     * Attn: Make sure the Array is sorted (ascending) - otherwise the search will not work!
      */
-    override public function index(item:T, arr:Null<Array<T>>):Int
-    {
-        if (arr != null && arr.length != 0) {
-            return this.internalIndex(item, arr);
-        }
-
-        return -1;
-    }
-
-    /**
-     * @{inherit}
-     */
-    private function internalIndex(item:T, arr:Array<T>):Int
+    override private function _indexOf(item:T, arr:Array<T>):Int
     {
         var first:Int = 0,
             last:Int  = arr.length - 1;
@@ -45,9 +31,10 @@ class BinarySearch<T> extends ArraySearchAlgorithm<T>
         var middle:Int;
         while (last >= first) {
             middle = Std.int((first + last) / 2);
-            if (this.comparator(arr[middle], item) < 0) {
+            var ret:Int = this.comparator(arr[middle], item);
+            if (ret < 0) {
                 first = middle + 1;
-            } else if (this.comparator(arr[middle], item) > 0) {
+            } else if (ret > 0) {
                 last = middle - 1;
             } else {
                 return middle;

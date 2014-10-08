@@ -43,18 +43,16 @@ class AhoCorasickSearch extends TextSearchAlgorithm
     /**
      * @{inherit}
      */
-    override public function index(text:Null<String>):Int
+    override private function _indexIn(text:String):Int
     {
-        if (text != null && text.length >= this.pattern.length) {
-            var index:Int = 0;
-            var node:Int  = 0;
-            for (i in 0...text.length) {
-                node = this.transition(node, text.fastCodeAt(i));
-                if (this.nodes[node].leaf) {
-                    return index - this.nodes[node].parent;
-                }
-                ++index;
+        var index:Int = 0;
+        var node:Int  = 0;
+        for (i in 0...text.length) {
+            node = this.transition(node, text.fastCodeAt(i));
+            if (this.nodes[node].leaf) {
+                return index - this.nodes[node].parent;
             }
+            ++index;
         }
 
         return -1;

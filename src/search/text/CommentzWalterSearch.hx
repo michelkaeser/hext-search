@@ -22,7 +22,7 @@ class CommentzWalterSearch extends TextSearchAlgorithm
     /**
      * @{inherit}
      */
-    override public function index(text:String):Int
+    override private function _indexIn(text:String):Int
     {
         throw new NotImplementedException();
     }

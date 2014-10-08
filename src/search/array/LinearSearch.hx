@@ -23,19 +23,7 @@ class LinearSearch<T> extends ArraySearchAlgorithm<T>
     /**
      * @{inherit}
      */
-    override public function index(item:T, arr:Null<Array<T>>):Int
-    {
-        if (arr != null && arr.length != 0) {
-            return this.internalIndex(item, arr);
-        }
-
-        return -1;
-    }
-
-    /**
-     * @{inherit}
-     */
-    private function internalIndex(item:T, arr:Array<T>):Int
+    override private function _indexOf(item:T, arr:Array<T>):Int
     {
         var index:Int = -1,
             last:Int  = arr.length - 1;

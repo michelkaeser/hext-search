@@ -22,10 +22,10 @@ interface IArraySearchAlgorithm<T>
      *
      * If the item is not found, -1 is returned.
      *
-     * @param T        item the item to look for
-     * @param Array<T> arr  the Array to search in
+     * @param T              item the item to look for
+     * @param Null<Array<T>> arr  the Array to search in
      *
      * @return Int the index at which the item was found
      */
-    public function index(item:T, arr:Array<T>):Int;
+    public function indexOf(item:T, arr:Null<Array<T>>):Int;
 }

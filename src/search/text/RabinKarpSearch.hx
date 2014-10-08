@@ -48,43 +48,41 @@ class RabinKarpSearch extends TextSearchAlgorithm
     /**
      * @{inherit}
      */
-    override public function index(text:Null<String>):Int
+    override private function _indexIn(text:String):Int
     {
-        if (text != null && text.length >= this.pattern.length) {
-            var m:Int = this.pattern.length,
-                n:Int = text.length,
-                t:Int = 0,
-                h:Int = 1;
+        var m:Int = this.pattern.length,
+            n:Int = text.length,
+            t:Int = 0,
+            h:Int = 1;
 
-            for (i in 0...m - 1) {
-                h = (h * RabinKarpSearch.D) % RabinKarpSearch.Q;
-            }
-            for (i in 0...m) {
-                t = (RabinKarpSearch.D * t + text.fastCodeAt(i)) % RabinKarpSearch.Q;
-            }
+        for (i in 0...m - 1) {
+            h = (h * RabinKarpSearch.D) % RabinKarpSearch.Q;
+        }
+        for (i in 0...m) {
+            t = (RabinKarpSearch.D * t + text.fastCodeAt(i)) % RabinKarpSearch.Q;
+        }
 
-            var i:Int = 0;
-            while (i <= n - m) {
-                if (this.hash == t) {
-                    var j:Int = 0;
-                    while (j < m) {
-                        if (text.fastCodeAt(i + j) != this.pattern.fastCodeAt(j)) {
-                            break;
-                        }
-                        ++j;
+        var i:Int = 0;
+        while (i <= n - m) {
+            if (this.hash == t) {
+                var j:Int = 0;
+                while (j < m) {
+                    if (text.fastCodeAt(i + j) != this.pattern.fastCodeAt(j)) {
+                        break;
                     }
-                    if (j == m) {
-                        return i;
-                    }
+                    ++j;
                 }
-                if (i < n - m) {
-                    t = (RabinKarpSearch.D * (t - text.fastCodeAt(i) * h) + text.fastCodeAt(i + m)) % RabinKarpSearch.Q;
-                    if (t < 0) {
-                        t = (t + RabinKarpSearch.Q);
-                    }
+                if (j == m) {
+                    return i;
                 }
-                ++i;
             }
+            if (i < n - m) {
+                t = (RabinKarpSearch.D * (t - text.fastCodeAt(i) * h) + text.fastCodeAt(i + m)) % RabinKarpSearch.Q;
+                if (t < 0) {
+                    t = (t + RabinKarpSearch.Q);
+                }
+            }
+            ++i;
         }
 
         return -1;

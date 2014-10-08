@@ -29,11 +29,25 @@ class ArraySearchAlgorithm<T> implements IArraySearchAlgorithm<T>
 
     /**
      * @{inherit}
+     */
+    public function indexOf(item:T, arr:Null<Array<T>>):Int
+    {
+        if (arr != null && arr.length != 0) {
+            return this._indexOf(item, arr);
+        }
+
+        return -1;
+    }
+
+    /**
+     * TODO
+     *
+     * @abstract
      *
      * @throws lib.NotImplementedException since the method is abstract and needs to be overriden by subclasses
      */
-    public function index(item:T, arr:Array<T>):Int
+    private function _indexOf(item:T, arr:Null<Array<T>>):Int
     {
-        throw new NotImplementedException("Method index() not implemented in abstract class ArraySearchAlgorithm.");
+        throw new NotImplementedException("Method _indexOf() not implemented in abstract class ArraySearchAlgorithm.");
     }
 }

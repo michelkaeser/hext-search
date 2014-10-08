@@ -42,29 +42,27 @@ class BoyerMooreSearch extends TextSearchAlgorithm
     /**
      * @{inherit}
      */
-    override public function index(text:Null<String>):Int
+    override private function _indexIn(text:String):Int
     {
-        if (text != null && text.length >= this.pattern.length) {
-            var n:Int = text.length,
-                m:Int = this.pattern.length;
+        var n:Int = text.length,
+            m:Int = this.pattern.length;
 
-            var i:Int = 0,
-                skip:Int;
-            while (i <= n - m) {
-                skip = 0;
-                var j:Int = m - 1;
-                while (j >= 0) {
-                    if (this.pattern.fastCodeAt(j) != text.fastCodeAt(i + j)) {
-                        skip = Std.int( Math.max(1, j - this.occurrences[text.fastCodeAt(i + j)]) );
-                        break;
-                    }
-                    --j;
+        var i:Int = 0,
+            skip:Int;
+        while (i <= n - m) {
+            skip = 0;
+            var j:Int = m - 1;
+            while (j >= 0) {
+                if (this.pattern.fastCodeAt(j) != text.fastCodeAt(i + j)) {
+                    skip = Std.int( Math.max(1, j - this.occurrences[text.fastCodeAt(i + j)]) );
+                    break;
                 }
-                if (skip == 0) {
-                    return i;
-                }
-                i += skip;
+                --j;
             }
+            if (skip == 0) {
+                return i;
+            }
+            i += skip;
         }
 
         return -1;

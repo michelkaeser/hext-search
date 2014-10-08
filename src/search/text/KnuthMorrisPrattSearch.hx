@@ -33,22 +33,20 @@ class KnuthMorrisPrattSearch extends TextSearchAlgorithm
     /**
      * @{inherit}
      */
-    override public function index(text:Null<String>):Int
+    override private function _indexIn(text:String):Int
     {
-        if (text != null && text.length >= this.pattern.length) {
-            var t:Int = 0,
-                p:Int = 0;
+        var t:Int = 0,
+            p:Int = 0;
 
-            while (t < text.length) {
-                if (p < 0 || text.fastCodeAt(t) == this.pattern.fastCodeAt(p)) {
-                    ++t; ++p;
-                } else {
-                    p = this.jumps[p];
-                }
+        while (t < text.length) {
+            if (p < 0 || text.fastCodeAt(t) == this.pattern.fastCodeAt(p)) {
+                ++t; ++p;
+            } else {
+                p = this.jumps[p];
+            }
 
-                if (p == this.pattern.length) {
-                    return t - this.pattern.length;
-                }
+            if (p == this.pattern.length) {
+                return t - this.pattern.length;
             }
         }
 

@@ -41,27 +41,43 @@ class TextSearchAlgorithm implements ITextSearchAlgorithm
      *
      * @throws hxstd.NotImplementedException since the method is abstract and to be overriden in subclasses
      */
-    public function index(text:String):Int
+    public function indexIn(text:Null<String>):Int
     {
-        throw new NotImplementedException("Method index() not implemented in abstract class TextSearchAlgorithm.");
+        if (text != null && text.length >= this.pattern.length) {
+            return this._indexIn(text);
+        }
+
+        return -1;
+    }
+
+    /**
+     * TODO
+     *
+     * @abstract
+     *
+     * @throws lib.NotImplementedException since the method is abstract and to be overriden in subclasses
+     */
+    private function _indexIn(text:Null<String>):Int
+    {
+        throw new NotImplementedException("Method _indexOf() not implemented in abstract class TextSearchAlgorithm.");
     }
 
     /**
      * @{inherit}
      */
-    public function indexes(text:Null<String>):Array<Int>
+    public function indexesIn(text:Null<String>):Array<Int>
     {
         var indexes:Array<Int> = new Array<Int>();
 
         if (text != null) {
             var length:Int = this.pattern.length,
-                index:Int  = this.index(text);
+                index:Int  = this.indexIn(text);
             while (index != -1) {
                 if (indexes.length != 0) {
                     index += indexes[indexes.length - 1] + length;
                 }
                 indexes.push(index);
-                index = this.index(text.substring(index + length));
+                index = this.indexIn(text.substring(index + length));
             }
         }
 
