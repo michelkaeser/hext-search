@@ -1,7 +1,7 @@
 package hext.search.array;
 
 import hext.search.array.ArraySearchAlgorithm;
-import hext.util.Comparator;
+import hext.utils.Comparator;
 
 /**
  * This class is an implementation of "Linear Search with Guard" algorithm.
@@ -13,7 +13,7 @@ class LinearSearch<T> extends ArraySearchAlgorithm<T>
     /**
      * Constructor to initialize a new LinearSearch instance.
      *
-     * @param hext.util.Comparator<T> comparator the Comparator to use
+     * @param hext.utils.Comparator<T> comparator the Comparator to use
      */
     public function new(comparator:Comparator<T>):Void
     {

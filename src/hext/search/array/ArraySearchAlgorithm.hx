@@ -2,7 +2,7 @@ package hext.search.array;
 
 import hext.NotImplementedException;
 import hext.search.array.IArraySearchAlgorithm;
-import hext.util.Comparator;
+import hext.utils.Comparator;
 
 /**
  * Abstract Array search algorithm implementation.
@@ -20,7 +20,7 @@ class ArraySearchAlgorithm<T> implements IArraySearchAlgorithm<T>
     /**
      * Constructor to initialize a new ArraySearchAlgorithm instance.
      *
-     * @param hext.util.Comparator<T> comparator the Comparator to use
+     * @param hext.utils.Comparator<T> comparator the Comparator to use
      */
     private function new(comparator:Comparator<T>):Void
     {
