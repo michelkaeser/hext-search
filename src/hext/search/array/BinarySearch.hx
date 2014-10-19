@@ -1,7 +1,7 @@
-package search.array;
+package hext.search.array;
 
-import lib.util.Comparator;
-import search.array.ArraySearchAlgorithm;
+import hext.search.array.ArraySearchAlgorithm;
+import hext.util.Comparator;
 
 /**
  * This class is an implementation of "Binary Search" algorithm.
@@ -13,7 +13,7 @@ class BinarySearch<T> extends ArraySearchAlgorithm<T>
     /**
      * Constructor to initialize a new BinarySearch instance.
      *
-     * @param lib.util.Comparator<T> comparator the Comparator to use
+     * @param hext.util.Comparator<T> comparator the Comparator to use
      */
     public function new(comparator:Comparator<T>):Void
     {

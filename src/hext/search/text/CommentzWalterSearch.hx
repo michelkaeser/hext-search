@@ -1,7 +1,7 @@
-package search.text;
+package hext.search.text;
 
-import lib.NotImplementedException;
-import search.text.TextSearchAlgorithm;
+import hext.NotImplementedException;
+import hext.search.text.TextSearchAlgorithm;
 
 /**
  *

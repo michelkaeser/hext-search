@@ -1,6 +1,6 @@
-package search.array;
+package hext.search.array;
 
-import lib.util.Comparator;
+import hext.util.Comparator;
 
 /**
  * Interface for Array search algorithms.
@@ -12,7 +12,7 @@ interface IArraySearchAlgorithm<T>
     /**
      * Stores the Comparator used to compare two items.
      *
-     * @var lib.util.Comparator<T>
+     * @var hext.util.Comparator<T>
      */
     public var comparator:Comparator<T>;
 

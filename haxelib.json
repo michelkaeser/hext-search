@@ -1,15 +1,15 @@
 {
-    "name": "search",
-    "url" : "https://github.com/MaddinXx/hx-search",
+    "name": "hext-search",
+    "url" : "",
     "license": "MIT",
-    "tags": ["search", "algorithm", "array", "find", "ds"],
+    "tags": ["search", "algorithm", "array", "find", "ds", "text"],
     "description": "Searching algorithm library for Haxe.",
     "classPath": "src",
     "dependencies": {
-        "lib": ""
+        "hext-core": ""
     },
     "version": "0.0.0",
-    "releasenote": "Starting a new era",
+    "releasenote": "",
     "contributors": [
         "MaddinXx"
     ]

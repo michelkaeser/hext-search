@@ -1,9 +1,9 @@
-package search.text;
+package hext.search.text;
 
 import haxe.ds.Vector;
-import lib.Char;
-import lib.NotImplementedException;
-import search.text.TextSearchAlgorithm;
+import hext.Char;
+import hext.NotImplementedException;
+import hext.search.text.TextSearchAlgorithm;
 
 using StringTools;
 
@@ -18,7 +18,7 @@ class AhoCorasickSearch extends TextSearchAlgorithm
     /**
      * Stores the nodes the algorithm uses to represent text.
      *
-     * @var haxe.ds.Vector<search.text.AhoCarosickSearch.Node>
+     * @var haxe.ds.Vector<hext.search.text.AhoCarosickSearch.Node>
      */
     private var nodes:Vector<Node>;
 
@@ -114,7 +114,7 @@ class AhoCorasickSearch extends TextSearchAlgorithm
     }
 
     /**
-     *
+     * TODO
      */
     private function transition(index:Int, ch:Int):Int
     {

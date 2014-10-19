@@ -1,4 +1,4 @@
-package search.tests;
+package hext.search.tests;
 
 #if cpp
     import mcover.coverage.MCoverage;
@@ -7,7 +7,7 @@ package search.tests;
 import haxe.unit.TestRunner;
 
 /**
- * TestSuite runner for classes in hxsearch package.
+ * TestSuite runner for classes in hext.search package.
  */
 class Runner
 {

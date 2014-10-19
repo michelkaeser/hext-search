@@ -1,8 +1,8 @@
-package search.array;
+package hext.search.array;
 
-import lib.NotImplementedException;
-import lib.util.Comparator;
-import search.array.IArraySearchAlgorithm;
+import hext.NotImplementedException;
+import hext.search.array.IArraySearchAlgorithm;
+import hext.util.Comparator;
 
 /**
  * Abstract Array search algorithm implementation.
@@ -20,7 +20,7 @@ class ArraySearchAlgorithm<T> implements IArraySearchAlgorithm<T>
     /**
      * Constructor to initialize a new ArraySearchAlgorithm instance.
      *
-     * @param lib.util.Comparator<T> comparator the Comparator to use
+     * @param hext.util.Comparator<T> comparator the Comparator to use
      */
     private function new(comparator:Comparator<T>):Void
     {
@@ -44,9 +44,9 @@ class ArraySearchAlgorithm<T> implements IArraySearchAlgorithm<T>
      *
      * @abstract
      *
-     * @throws lib.NotImplementedException since the method is abstract and needs to be overriden by subclasses
+     * @throws hext.NotImplementedException since the method is abstract and needs to be overriden by subclasses
      */
-    private function _indexOf(item:T, arr:Null<Array<T>>):Int
+    private function _indexOf(item:T, arr:Array<T>):Int
     {
         throw new NotImplementedException("Method _indexOf() not implemented in abstract class ArraySearchAlgorithm.");
     }

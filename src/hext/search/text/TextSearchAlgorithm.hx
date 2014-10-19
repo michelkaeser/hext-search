@@ -1,7 +1,7 @@
-package search.text;
+package hext.search.text;
 
-import lib.NotImplementedException;
-import search.text.ITextSearchAlgorithm;
+import hext.NotImplementedException;
+import hext.search.text.ITextSearchAlgorithm;
 
 /**
  * Abstract text search algorithm implementation.
@@ -38,8 +38,6 @@ class TextSearchAlgorithm implements ITextSearchAlgorithm
 
     /**
      * @{inherit}
-     *
-     * @throws hxstd.NotImplementedException since the method is abstract and to be overriden in subclasses
      */
     public function indexIn(text:Null<String>):Int
     {
@@ -55,7 +53,7 @@ class TextSearchAlgorithm implements ITextSearchAlgorithm
      *
      * @abstract
      *
-     * @throws lib.NotImplementedException since the method is abstract and to be overriden in subclasses
+     * @throws hext.NotImplementedException since the method is abstract and to be overriden in subclasses
      */
     private function _indexIn(text:Null<String>):Int
     {

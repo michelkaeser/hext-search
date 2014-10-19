@@ -1,4 +1,4 @@
-# hx-search
+# hext-search
 
 > Searching algorithm library for Haxe.
 

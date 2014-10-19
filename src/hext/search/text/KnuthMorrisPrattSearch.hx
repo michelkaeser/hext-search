@@ -1,7 +1,7 @@
-package search.text;
+package hext.search.text;
 
 import haxe.ds.Vector;
-import search.text.TextSearchAlgorithm;
+import hext.search.text.TextSearchAlgorithm;
 
 using StringTools;
 

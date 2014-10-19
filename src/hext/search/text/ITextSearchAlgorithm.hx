@@ -1,4 +1,4 @@
-package search.text;
+package hext.search.text;
 
 /**
  * Text search algorithm interface to be implemented.

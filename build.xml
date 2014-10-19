@@ -1,4 +1,4 @@
-<project name="hx-search" default="exit" basedir=".">
+<project name="hext-search" default="exit" basedir=".">
     <description>Searching algorithm library for Haxe.</description>
 
     <property environment="env" />
@@ -28,8 +28,8 @@
         </exec>
         <!--<exec executable="haxelib">
             <arg value="git" />
-            <arg value="lib" />
-            <arg value="git@git.rackster.ch:MaddinXx/hx-lib.git" />
+            <arg value="hext-core" />
+            <arg value="git@git.rackster.ch:MaddinXx/hext-core.git" />
         </exec>-->
         <exec executable="haxelib">
             <arg value="install" />
@@ -37,24 +37,24 @@
         </exec>
     </target>
 
-    <target name="build" depends="dependencies" description="Builds the unit test runners">
+    <target name="build-tests" depends="dependencies" description="Builds the unit test runners">
         <echo>Compiling the source code...</echo>
-        <exec executable="haxe" resultproperty="build.code">
-            <arg value="${build}/build.hxml" />
+        <exec executable="haxe" resultproperty="build-tests.code">
+            <arg value="${build}/build_tests.hxml" />
         </exec>
-        <condition property="build.failed">
-            <isfailure code="${build.code}" />
+        <condition property="build-tests.failed">
+            <isfailure code="${build-tests.code}" />
         </condition>
     </target>
 
-    <target name="test" depends="build" unless="build.failed" description="Runs the unit tests">
+    <target name="test" depends="build-tests" unless="build-tests.failed" description="Runs the unit tests">
         <echo>Running unit tests...</echo>
         <exec executable="${bin}/cpp/Runner" resultproperty="cpp.code" />
         <exec executable="mono" resultproperty="cs.code">
             <arg value="${bin}/cs/bin/Runner.exe" />
         </exec>
         <java jar="${bin}/java/Runner.jar" fork="true" resultproperty="java.code" />
-        <exec executable="node" resultproperty="node.code">
+        <exec executable="node" resultproperty="js.code">
             <arg value="${bin}/Runner.js" />
         </exec>
         <exec executable="neko" resultproperty="neko.code">
@@ -68,22 +68,33 @@
                 <isfailure code="${cpp.code}" />
                 <isfailure code="${cs.code}" />
                 <isfailure code="${java.code}" />
-                <isfailure code="${node.code}" />
+                <isfailure code="${js.code}" />
                 <isfailure code="${neko.code}" />
                 <isfailure code="${php.code}" />
             </or>
         </condition>
     </target>
 
-    <target name="cleanup" depends="test" description="Removes compiled files and directories">
+    <target name="build-api" depends="test" description="Builds the API documentation">
+        <echo>Building the API documentation...</echo>
+        <exec executable="haxe" resultproperty="build-api.code">
+            <arg value="${build}/build_api.hxml" />
+        </exec>
+        <condition property="build-api.failed">
+            <isfailure code="${build-api.code}" />
+        </condition>
+    </target>
+
+    <target name="cleanup" depends="build-api" description="Removes compiled files and directories">
         <echo>Removing (temporary) directories...</echo>
         <delete dir="${bin}" />
         <delete dir="${workspace}/.temp" />
     </target>
 
     <target name="exit" depends="cleanup" description="Marks the build as failed if one of the targets failed">
-        <fail if="build.failed">Build step failed. Check output log for more information.</fail>
+        <fail if="build-tests.failed">Build step (tests) failed. Check output log for more information.</fail>
         <fail if="test.failed">Unit tests step failed. Check output log for more information.</fail>
+        <fail if="build-api.failed">Build step (API) failed. Check output log for more information.</fail>
         <echo>Everything went well. Good job!</echo>
     </target>
 </project>
