@@ -25,9 +25,8 @@ class BinarySearch<T> extends ArraySearchAlgorithm<T>
      */
     override private function _indexOf(item:T, arr:Array<T>):Int
     {
-        var first:Int = 0,
-            last:Int  = arr.length - 1;
-
+        var first:Int = 0;
+        var last:Int  = arr.length - 1;
         var middle:Int;
         while (last >= first) {
             middle = Std.int((first + last) / 2);

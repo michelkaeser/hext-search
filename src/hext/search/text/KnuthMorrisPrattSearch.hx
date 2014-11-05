@@ -35,12 +35,12 @@ class KnuthMorrisPrattSearch extends TextSearchAlgorithm
      */
     override private function _indexIn(text:String):Int
     {
-        var t:Int = 0,
-            p:Int = 0;
-
+        var t:Int = 0;
+        var p:Int = 0;
         while (t < text.length) {
             if (p < 0 || text.fastCodeAt(t) == this.pattern.fastCodeAt(p)) {
-                ++t; ++p;
+                ++t;
+                ++p;
             } else {
                 p = this.jumps[p];
             }
@@ -61,8 +61,8 @@ class KnuthMorrisPrattSearch extends TextSearchAlgorithm
      */
     private function initJumps():Void
     {
-        var i:Int     = 0,
-            j:Int     = -1;
+        var i:Int     = 0;
+        var j:Int     = -1;
         this.jumps[i] = j;
 
         while (i < this.pattern.length - 1) {

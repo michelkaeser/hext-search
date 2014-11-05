@@ -1,6 +1,6 @@
 package hext.search.text;
 
-import haxe.ds.Vector;
+import haxe.ds.IntMap;
 import hext.search.text.TextSearchAlgorithm;
 
 using StringTools;
@@ -9,33 +9,26 @@ using StringTools;
  * Boyer-Moore algorithm implementation.
  *
  * @link http://en.wikipedia.org/wiki/Boyer-Moore_string_search_algorithm
- * @link https://weblogs.java.net/blog/potty/archive/2012/05/21/string-searching-algorithms-part-iii
  */
 class BoyerMooreSearch extends TextSearchAlgorithm
 {
     /**
-     * Stores the number of characters in input alphabet.
+     * Stores the map where we store occurrences (the position)
+     * of characters from and in the search pattern.
      *
-     * @var Int
+     * @var haxe.ds.IntMap<Int>
      */
-    private static inline var D:Int = 256;
-
-    /**
-     * Stores the Vector of character occurrences.
-     *
-     * @var haxe.ds.Vector<Int>
-     */
-    private var occurrences:Vector<Int>;
+    private var occurrences:IntMap<Int>;
 
 
     /**
      * Constructor to initialize a new BoyerMoore instance.
      *
-     * @param String pattern the pattern to use
+     * @param String pattern the pattern to look for
      */
     public function new(pattern:String):Void
     {
-        this.occurrences = new Vector<Int>(BoyerMooreSearch.D);
+        this.occurrences = new IntMap<Int>();
         super(pattern);
     }
 
@@ -44,25 +37,24 @@ class BoyerMooreSearch extends TextSearchAlgorithm
      */
     override private function _indexIn(text:String):Int
     {
-        var n:Int = text.length,
-            m:Int = this.pattern.length;
-
-        var i:Int = 0,
-            skip:Int;
-        while (i <= n - m) {
-            skip = 0;
-            var j:Int = m - 1;
-            while (j >= 0) {
-                if (this.pattern.fastCodeAt(j) != text.fastCodeAt(i + j)) {
-                    skip = Std.int( Math.max(1, j - this.occurrences[text.fastCodeAt(i + j)]) );
-                    break;
-                }
+        var i:Int = 0;
+        while (i < text.length) {
+            var j:Int = this.pattern.length - 1;
+            while (j >= 0 && text.fastCodeAt(i + j) == this.pattern.fastCodeAt(j)) {
                 --j;
             }
-            if (skip == 0) {
+            if (j != -1) {
+                var p:Null<Int> = this.occurrences.get(text.fastCodeAt(i + j));
+                if (p == null) {
+                    i = i + j + 1;
+                } else if (p < j) {
+                    i = i + j - p;
+                } else {
+                    ++i;
+                }
+            } else {
                 return i;
             }
-            i += skip;
         }
 
         return -1;
@@ -74,12 +66,8 @@ class BoyerMooreSearch extends TextSearchAlgorithm
     override private function set_pattern(pattern:String):String
     {
         super.set_pattern(pattern);
-
-        for (i in 0...BoyerMooreSearch.D) {
-            this.occurrences[i] = -1;
-        }
-        for (i in 0...this.pattern.length) {
-            this.occurrences[this.pattern.fastCodeAt(i)] = i;
+        for (i in 0...pattern.length) {
+            this.occurrences.set(pattern.fastCodeAt(i), i);
         }
 
         return pattern;

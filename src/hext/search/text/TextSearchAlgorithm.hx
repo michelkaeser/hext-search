@@ -66,10 +66,9 @@ class TextSearchAlgorithm implements ITextSearchAlgorithm
     public function indexesIn(text:Null<String>):Array<Int>
     {
         var indexes:Array<Int> = new Array<Int>();
-
         if (text != null) {
-            var length:Int = this.pattern.length,
-                index:Int  = this.indexIn(text);
+            var length:Int = this.pattern.length;
+            var index:Int  = this.indexIn(text);
             while (index != -1) {
                 if (indexes.length != 0) {
                     index += indexes[indexes.length - 1] + length;
