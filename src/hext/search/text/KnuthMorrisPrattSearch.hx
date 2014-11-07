@@ -64,7 +64,6 @@ class KnuthMorrisPrattSearch extends TextSearchAlgorithm
         var i:Int     = 0;
         var j:Int     = -1;
         this.jumps[i] = j;
-
         while (i < this.pattern.length - 1) {
             if (j < 0 || this.pattern.fastCodeAt(i) == this.pattern.fastCodeAt(j)) {
                 this.jumps[++i] = ++j;

@@ -27,10 +27,9 @@ class BinarySearch<T> extends ArraySearchAlgorithm<T>
     {
         var first:Int = 0;
         var last:Int  = arr.length - 1;
-        var middle:Int;
         while (last >= first) {
-            middle = Std.int((first + last) / 2);
-            var ret:Int = this.comparator(arr[middle], item);
+            var middle:Int = Std.int((first + last) / 2);
+            var ret:Int    = this.comparator(arr[middle], item);
             if (ret < 0) {
                 first = middle + 1;
             } else if (ret > 0) {
