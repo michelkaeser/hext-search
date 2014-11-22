@@ -1,15 +1,15 @@
 {
     "name": "hext-search",
-    "url" : "",
+    "url" : "https://github.com/michelkaeser/hext-search",
     "license": "MIT",
     "tags": ["search", "algorithm", "array", "find", "ds", "text"],
     "description": "Searching algorithm library for Haxe.",
     "classPath": "src",
     "dependencies": {
-        "hext-core": ""
+        "hext-core": "1.0.0-alpha"
     },
-    "version": "0.0.0",
-    "releasenote": "",
+    "version": "1.0.0-alpha",
+    "releasenote": "First haxelib release.",
     "contributors": [
         "MaddinXx"
     ]
