@@ -1,16 +1,14 @@
-# hxsort [![build status](https://ci.rackster.ch/projects/3/status.png?ref=master)](https://ci.rackster.ch/projects/3?ref=master)
+# hext-search
 
-> Sorting algorithms (http://sortvis.org/) ported to Haxe.
+> Searching algorithm library for Haxe.
 
-## Compilation Flags
+## Nullability
 
-`-D HXSORT_GENERIC`
+Haxe has a special type `Null<T>` which is mainly for documentation purpose and for static platforms (so e.g. `Int` can be `null`). You can find its typedef here: http://api.haxe.org/Null.html
 
-Creates per-type implemetation of static `internalSort()` function. This can lead to better performance on various platforms, but generates larger output.
+Trying to follow the documentation aspect, all methods that accept a nullable value (e.g. `Null<Bytes>`) can safely be called with `null` - it is ensured they will _not_ throw an Exception or Error.
 
-`-D HXSORT_INLINE`
-
-Inlines the static `swap()` function of `AbstractSort`. This can lead to better performance on various platforms, but generates larger output.
+On the other hand, when a methods returns a value of type `Null<T>` that means, that the returned value may be `null`.
 
 ## License
 
@@ -35,6 +33,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-
-

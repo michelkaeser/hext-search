@@ -1,8 +1,5 @@
-# IDEA
-/.idea/workspace.xml
-/.idea/tasks.xml
-/.idea/*.iws
-
 # generated
+/api
 /bin
 /dist
+/.temp
