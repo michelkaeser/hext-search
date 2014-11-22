@@ -26,11 +26,10 @@
             <arg value="install" />
             <arg value="hxjava" />
         </exec>
-        <!--<exec executable="haxelib">
-            <arg value="git" />
+        <exec executable="haxelib">
+            <arg value="install" />
             <arg value="hext-core" />
-            <arg value="git@git.rackster.ch:MaddinXx/hext-core.git" />
-        </exec>-->
+        </exec>
         <exec executable="haxelib">
             <arg value="install" />
             <arg value="mcover" />
